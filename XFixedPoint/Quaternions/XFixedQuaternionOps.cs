@@ -102,21 +102,24 @@ namespace XFixedPoint.Quaternions
         /// </summary>
         public static XFixedVector3 ToEulerAngles(XFixedQuaternion q)
         {
-            // Roll (Z 轴旋转)
-            var sinRCosP = XFixed.FromDouble(2.0) * (q.W * q.Z + q.X * q.Y);
-            var cosRCosP = XFixed.One - XFixed.FromDouble(2.0) * (q.Y * q.Y + q.Z * q.Z);
-            var roll = XFixed.FromDouble(Math.Atan2(sinRCosP.ToDouble(), cosRCosP.ToDouble()));
+            // —— Roll (绕 Z 轴) —— 
+            // 分子：M10 = 2*(w*z + x*y)
+            var sinR = XFixed.FromDouble(2.0) * (q.W * q.Z + q.X * q.Y);
+            // 分母：M11 = 1 - 2*(x² + z²)
+            var cosR = XFixed.One - XFixed.FromDouble(2.0) * (q.X * q.X + q.Z * q.Z);
+            var roll = XFixed.FromDouble(Math.Atan2(sinR.ToDouble(), cosR.ToDouble()));
 
-            // Pitch (X 轴旋转)
+            // —— Pitch (绕 X 轴) —— 
             var sinP = XFixed.FromDouble(2.0) * (q.W * q.X - q.Z * q.Y);
             sinP = XFixedMath.Clamp(sinP, -XFixed.One, XFixed.One);
             var pitch = XFixed.FromDouble(Math.Asin(sinP.ToDouble()));
 
-            // Yaw (Y 轴旋转)
-            var sinYCosP = XFixed.FromDouble(2.0) * (q.W * q.Y + q.Z * q.X);
-            var cosYCosP = XFixed.One - XFixed.FromDouble(2.0) * (q.X * q.X + q.Y * q.Y);
-            var yaw = XFixed.FromDouble(Math.Atan2(sinYCosP.ToDouble(), cosYCosP.ToDouble()));
+            // —— Yaw (绕 Y 轴) —— 
+            var sinY = XFixed.FromDouble(2.0) * (q.W * q.Y + q.Z * q.X);
+            var cosY = XFixed.One - XFixed.FromDouble(2.0) * (q.X * q.X + q.Y * q.Y);
+            var yaw   = XFixed.FromDouble(Math.Atan2(sinY.ToDouble(), cosY.ToDouble()));
 
+            // 返回 (pitch, yaw, roll)
             return new XFixedVector3(pitch, yaw, roll);
         }
 

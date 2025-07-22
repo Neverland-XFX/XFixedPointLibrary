@@ -203,3 +203,4 @@ F:\GitHub\定点数学物理库\XFixedPointLibrary\XFixedPoint.Tests\obj\Debug\n
 F:\GitHub\定点数学物理库\XFixedPointLibrary\XFixedPoint.Tests\obj\Debug\net9.0\XFixedPoint.Tests.pdb
 F:\GitHub\定点数学物理库\XFixedPointLibrary\XFixedPoint.Tests\obj\Debug\net9.0\XFixedPoint.Tests.genruntimeconfig.cache
 F:\GitHub\定点数学物理库\XFixedPointLibrary\XFixedPoint.Tests\obj\Debug\net9.0\ref\XFixedPoint.Tests.dll
+F:\GitHub\定点数学物理库\XFixedPointLibrary\XFixedPoint.Tests\obj\Debug\net9.0\XFixedPoint.Tests.sourcelink.json
