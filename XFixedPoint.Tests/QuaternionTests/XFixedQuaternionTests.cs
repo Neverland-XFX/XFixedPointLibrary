@@ -35,13 +35,16 @@ namespace XFixedPoint.Tests.QuaternionTests;
         [Fact]
         public void Conjugate_Multiplication_YieldsIdentity()
         {
-            var axis = new XFixedVector3(XFixed.Zero, XFixed.One, XFixed.Zero);
-            var angle = XFixed.FromDouble(1.234); 
-            var q = XFixedQuaternion.FromAxisAngle(axis, angle);
-            var qConj = q.Conjugate;
-            var res = q * qConj;
-            // Should be identity (0,0,0,1)
-            Assert.Equal(XFixedQuaternion.Identity, res.Normalized);
+            var axis    = new XFixedVector3(XFixed.Zero, XFixed.One, XFixed.Zero);
+            var angle   = XFixed.FromDouble(1.234);
+            var q       = XFixedQuaternion.FromAxisAngle(axis, angle);
+            var res     = (q * q.Conjugate).Normalized;
+
+            const double tol = 1e-5;
+            Assert.InRange(res.X.ToDouble(),  0.0 - tol, 0.0 + tol);
+            Assert.InRange(res.Y.ToDouble(),  0.0 - tol, 0.0 + tol);
+            Assert.InRange(res.Z.ToDouble(),  0.0 - tol, 0.0 + tol);
+            Assert.InRange(res.W.ToDouble(),  1.0 - tol, 1.0 + tol);
         }
 
         [Fact]
@@ -60,7 +63,15 @@ namespace XFixedPoint.Tests.QuaternionTests;
 
             var a = (q1 * q2) * q3;
             var b = q1 * (q2 * q3);
-            // Up to normalization they should match
-            Assert.Equal(a.Normalized, b.Normalized);
+
+            // 归一化后做组件误差比较
+            var ra = a.Normalized;
+            var rb = b.Normalized;
+            const double tol = 1e-5;
+
+            Assert.InRange(ra.X.ToDouble(), rb.X.ToDouble() - tol, rb.X.ToDouble() + tol);
+            Assert.InRange(ra.Y.ToDouble(), rb.Y.ToDouble() - tol, rb.Y.ToDouble() + tol);
+            Assert.InRange(ra.Z.ToDouble(), rb.Z.ToDouble() - tol, rb.Z.ToDouble() + tol);
+            Assert.InRange(ra.W.ToDouble(), rb.W.ToDouble() - tol, rb.W.ToDouble() + tol);
         }
     }

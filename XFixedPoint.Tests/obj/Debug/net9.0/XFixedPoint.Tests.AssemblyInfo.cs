@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("XFixedPoint.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fd261ada3f9a9e70c23409ab08bddb1a0d2dc091")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1b541eabd736c9d84501316b115cbfc12739fb56")]
 [assembly: System.Reflection.AssemblyProductAttribute("XFixedPoint.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("XFixedPoint.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
