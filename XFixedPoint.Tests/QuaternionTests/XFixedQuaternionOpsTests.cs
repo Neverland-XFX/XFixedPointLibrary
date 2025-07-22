@@ -27,15 +27,15 @@ namespace XFixedPoint.Tests.QuaternionTests;
         public void Slerp_BetweenIdentityAnd180deg_HalfwayGives90deg()
         {
             var q0 = XFixedQuaternion.Identity;
-            // 180° around Y: cos=0, sin=1 for half-angle
             var q1 = XFixedQuaternion.FromAxisAngle(XFixedVector3.UnitY, XFixed.FromDouble(Math.PI));
             var qm = XFixedQuaternionOps.Slerp(q0, q1, XFixed.FromDouble(0.5));
-            // Should be ~90° around Y
-            var v = new XFixedVector3(XFixed.One, XFixed.Zero, XFixed.Zero);
+            var v  = new XFixedVector3(XFixed.One, XFixed.Zero, XFixed.Zero);
             var rotated = qm.Rotate(v);
-            // Rotating X axis 90° around Y → Z axis negative direction
+
+            // X 分量为 0
             Assert.InRange(rotated.X.ToDouble(), 0 - Tolerance, 0 + Tolerance);
-            Assert.InRange(rotated.Z.ToDouble(), -1 - Tolerance, -1 + Tolerance);
+            // Z 分量应当接近 +1
+            Assert.InRange(rotated.Z.ToDouble(), 1 - Tolerance, 1 + Tolerance);
         }
 
         [Fact]

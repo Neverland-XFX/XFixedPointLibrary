@@ -8,9 +8,7 @@ namespace XFixedPoint.Physics.Collision
     /// </summary>
     public class OBBCollider : FixedCollider
     {
-        /// <summary>
-        /// 盒子在局部空间中的半尺寸
-        /// </summary>
+        /// <summary>盒子在局部空间中的半尺寸</summary>
         public XFixedVector3 HalfSize { get; set; }
 
         public OBBCollider(XFixedVector3 halfSize)
@@ -147,19 +145,23 @@ namespace XFixedPoint.Physics.Collision
                     return new CollisionManifold { Colliding = false };
 
                 var penetration = (ra + rb) - dist;
+
+                // 先判断是否真的是零向量
                 var axisTemp = axesA[i].Cross(axesB[j]);
-                if (axisTemp == XFixedVector3.Zero)
+                if (axisTemp.SqrMagnitude == XFixed.Zero)
                     continue;
 
-                var axisNorm = axisTemp / axisTemp.Magnitude;
-                var sign = (tVec.Dot(axisTemp) < XFixed.Zero) ? -XFixed.One : XFixed.One;
-                var axis    = axisNorm * sign;
+                // 安全地归一化
+                var axisMag  = XFixedMath.Sqrt(axisTemp.SqrMagnitude);
+                var axisNorm = axisTemp / axisMag;
+                var sign     = (tVec.Dot(axisTemp) < XFixed.Zero) ? -XFixed.One : XFixed.One;
+                var axis     = axisNorm * sign;
 
                 if (!found || penetration < bestPen)
                 {
-                    bestPen = penetration;
+                    bestPen  = penetration;
                     bestAxis = axis;
-                    found = true;
+                    found    = true;
                 }
             }
 
@@ -190,7 +192,6 @@ namespace XFixedPoint.Physics.Collision
                 obb.WorldRotation.Rotate(XFixedVector3.UnitZ)
             };
 
-            // 沿每个轴选择正负半尺寸
             var p = c;
             p += axes[0] * (dir.Dot(axes[0]) >= XFixed.Zero ? obb.HalfSize.X : -obb.HalfSize.X);
             p += axes[1] * (dir.Dot(axes[1]) >= XFixed.Zero ? obb.HalfSize.Y : -obb.HalfSize.Y);
