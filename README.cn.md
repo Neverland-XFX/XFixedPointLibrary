@@ -2,6 +2,8 @@
 
 [TOC]
 
+[English Documentation | English Version](README.md)
+
 [![.NET Standard 2.1](https://img.shields.io/badge/.NET-Standard_2.1-blue)](https://docs.microsoft.com/dotnet/standard/net-standard) [![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 ## 项目简介
