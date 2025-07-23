@@ -1,60 +1,61 @@
-# XFixedPoint 定点数学与物理仿真库
+# XFixedPoint — Fixed-Point Math & Physics Simulation Library
 
 [TOC]
 
 [![.NET Standard 2.1](https://img.shields.io/badge/.NET-Standard_2.1-blue)](https://docs.microsoft.com/dotnet/standard/net-standard) [![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
-## 项目简介
+## Introduction
 
-**XFixedPoint** 是一个基于 [.NET Standard 2.1](https://docs.microsoft.com/dotnet/standard/net-standard) 的生产级定点数数学与物理仿真库，致力于：
+**XFixedPoint** is a production-grade fixed-point math and physics simulation library targeting [.NET Standard 2.1]. It aims to deliver:
 
-- **确定性**
-- **高性能**
-- **功能完备**
-- **易用性**
+- **Determinism** 
+- **High Performance** 
+- **Feature Completeness** 
+- **Ease of Use** 
 
 ---
 
-## 特性
+## Features
 
-- **核心类型 `XFixed`**：64.32 位定点表示，支持加/减/乘/除、比较、转换  
-- **数学函数 `XFixedMath`**：Newton 迭代开方、CORDIC 三角、Exp/Log、Lerp/Clamp/Min/Max  
-- **向量与矩阵**：`FixedVector2/3/4`、`FixedQuaternion`、`FixedMatrix4x4` 全面支持变换与插值  
-- **物理仿真**：`FixedRigidbody` 积分 + AABB/Sphere/OBB 碰撞（SAT）+ 弹性冲量响应  
-- **网络同步**：`Snapshot`、`InputBuffer`、`RollbackSystem` 实现确定性回滚  
-- **辅助工具**：定点随机数、`FixedTime` 管理、`FixedDebugger` 误差统计  
-- **全面测试**：xUnit 单元测试覆盖所有核心功能  
+- **Core type `XFixed`** — 64.32 fixed-point representation with + − × ÷, comparison, conversion  
+- **Math functions `XFixedMath`** — Newton Sqrt, CORDIC Sin/Cos/Tan/Atan2, Exp/Log, Lerp/Clamp/Min/Max  
+- **Vectors & Matrices** — `FixedVector2/3/4`, `FixedQuaternion`, `FixedMatrix4x4` for transforms & interpolation  
+- **Physics Simulation** — `FixedRigidbody` integration + AABB/Sphere/OBB SAT collision + elastic impulse response  
+- **Networking** — `Snapshot`, `InputBuffer`, `RollbackSystem` for deterministic roll-back and input replay  
+- **Utilities** — LCG fixed-point RNG, `FixedTime` manager, `FixedDebugger` error statistics  
+- **Full Test Coverage** — all modules verified with xUnit  
 
+---
 
+# Project Structure
 
-# 项目结构
 ```text
-XFixedPoint/                         ← 仓库根目录
-├─ XFixedPoint.csproj                ← .NET Standard 2.1 项目
-├─ README.md                         ← 文档
-├─ LICENSE                           ← MIT 许可证
-├─ Properties/AssemblyInfo.cs        ← 程序集元数据
+XFixedPoint/                         ← repository root
+├─ XFixedPoint.csproj                ← .NET Standard 2.1 project
+├─ README.md                         ← this documentation
+├─ LICENSE                           ← MIT license
+├─ Properties/AssemblyInfo.cs        ← assembly metadata
 │
-├─ Core/                              ← 核心定点类型与算术
-│   ├─ XFixedConstants.cs             ← 位宽、ONE、EPS 等常量
-│   ├─ XFixed.cs                      ← `XFixed` 结构体与基本转换
-│   ├─ XFixedArithmetic.cs            ← 加/减/乘/除 实现
-│   ├─ XFixedComparison.cs            ← 比较运算、接口实现
-│   └─ XFixedMath.cs                  ← Sqrt、Sin/Cos/CORDIC、Exp/Log、辅助函数
+├─ Core/                              ← core fixed-point types & algorithms
+│   ├─ XFixedConstants.cs             ← SHIFT, ONE, EPS constants
+│   ├─ XFixed.cs                      ← `XFixed` struct & conversions
+│   ├─ XFixedArithmetic.cs            ← + − × ÷ implementations
+│   ├─ XFixedComparison.cs            ← comparison operators & interfaces
+│   └─ XFixedMath.cs                  ← Sqrt, Sin/Cos (CORDIC), Exp/Log, helpers
 │
-├─ Vectors/                           ← 定点向量
+├─ Vectors/                           ← fixed-point vector types
 │   ├─ XFixedVector2.cs
 │   ├─ XFixedVector3.cs
 │   └─ XFixedVector4.cs
 │
-├─ Quaternions/                       ← 定点四元数
+├─ Quaternions/                       ← fixed-point quaternion
 │   ├─ XFixedQuaternion.cs
 │   └─ XFixedQuaternionOps.cs
 │
-├─ Matrices/                          ← 4×4 定点矩阵
+├─ Matrices/                          ← 4×4 fixed-point matrix
 │   └─ XFixedMatrix4x4.cs
 │
-├─ Physics/                           ← 物理仿真
+├─ Physics/                           ← physics simulation
 │   ├─ FixedRigidbody.cs
 │   ├─ FixedCollider.cs
 │   ├─ Collision/
@@ -63,17 +64,17 @@ XFixedPoint/                         ← 仓库根目录
 │   │   └─ OBBCollider.cs
 │   └─ PhysicsSystem.cs
 │
-├─ Networking/                        ← 快照与回滚
+├─ Networking/                        ← snapshot & rollback systems
 │   ├─ Snapshot.cs
 │   ├─ InputBuffer.cs
 │   └─ RollbackSystem.cs
 │
-├─ Utilities/                         ← 辅助工具
+├─ Utilities/                         ← helper utilities
 │   ├─ XFixedRandom.cs
 │   ├─ XFixedTime.cs
 │   └─ XFixedDebugger.cs
 │
-└─ Tests/                             ← xUnit 单元测试
+└─ Tests/                             ← xUnit unit tests
     ├─ CoreTests/
     ├─ VectorTests/
     ├─ QuaternionTests/
@@ -81,21 +82,22 @@ XFixedPoint/                         ← 仓库根目录
     ├─ PhysicsTests/
     ├─ NetworkingTests/
     └─ UtilitiesTests/
+
 ```
 
-## 模块概览
+## Modules Overview
 
-- **Core**：64.32 位定点 `XFixed`，`XFixedArithmetic`、`XFixedComparison`、`XFixedConstants`、`XFixedMath`
-- **Vectors**：2D/3D/4D 向量运算
-- **Quaternions**：四元数旋转、SLERP、欧拉角互转、矩阵
-- **Matrices**：4×4 矩阵变换
-- **Physics**：刚体积分、AABB/Sphere/OBB 碰撞、冲量响应
-- **Networking**：Snapshot、InputBuffer、RollbackSystem
-- **Utilities**：LCG 随机数、定点时间、误差调试
+- **Core**: `XFixed` + `XFixedArithmetic` + `XFixedComparison` + `XFixedConstants` + `XFixedMath`
+- **Vectors**: 2D/3D/4D vector operations
+- **Quaternions**: quaternion rotation, SLERP, Euler ↔ Quat, matrix conversion
+- **Matrices**: 4×4 matrix multiplication & point/vector transform
+- **Physics**: rigid-body integration, AABB/Sphere/OBB SAT collision, impulse response
+- **Networking**: deterministic `Snapshot`, `InputBuffer`, `RollbackSystem`
+- **Utilities**: LCG RNG, fixed-point timekeeping, debugging helpers
 
 ------
 
-# 快速开始
+## Quick Start
 
 ```c#
 using XFixedPoint.Core;
@@ -103,37 +105,32 @@ using XFixedPoint.Vectors;
 using XFixedPoint.Quaternions;
 using XFixedPoint.Physics;
 
-// 核心算术
+// Core arithmetic
 var a = XFixed.FromDouble(1.25);
 var b = XFixed.FromDouble(2.5);
 var c = a * b;                     // 3.125
-Console.WriteLine(c);              // "3.125"
+Console.WriteLine(c);
 
-// 向量旋转
+// Vector rotation
 var v = new XFixedVector3(a, XFixed.Zero, XFixed.One);
 var axis = new XFixedVector3(XFixed.Zero, XFixed.Zero, XFixed.One);
 var q = XFixedQuaternion.FromAxisAngle(axis, XFixed.FromDouble(Math.PI/2));
 var rotated = q.Rotate(v);
 
-// 物理仿真
-var phys = new PhysicsSystem { Gravity = FixedVector3.FromFloat(0, -9.81f, 0) };
-var body = new FixedRigidbody { Mass = XFixed.FromDouble(1.0) };
-var sphere = new XFixedPoint.Physics.Collision.SphereCollider(XFixed.FromDouble(0.5));
-phys.AddBody(body, sphere);
-phys.Step(XFixed.FromDouble(1.0/60.0));
+// Physics simulation
+var physics = new PhysicsSystem { Gravity = FixedVector3.FromFloat(0, -9.81f, 0) };
+var body    = new FixedRigidbody { Mass = XFixed.FromDouble(1.0) };
+var sphere  = new XFixedPoint.Physics.Collision.SphereCollider(XFixed.FromDouble(0.5));
+physics.AddBody(body, sphere);
+physics.Step(XFixed.FromDouble(1.0/60.0));
 ```
-
-## 示例项目
-
-请参阅 `Samples/`（计划中）获取 Unity 与控制台示例。
 
 ------
 
-## 贡献指南
+## Sample Projects
 
-1. Fork 仓库
-2. 新建分支 `git checkout -b feature/YourFeature`
-3. 提交改动 `git commit -m "Add feature"`
-4. 推送并发起 PR
+See the `Samples/` folder (planned) for Unity and console examples.
 
-欢迎性能优化、纯定点算法、新碰撞形状、文档改进等各类贡献！
+------
+
+We welcome performance improvements, pure-fixed implementations, new collision shapes, documentation enhancements, and more!
