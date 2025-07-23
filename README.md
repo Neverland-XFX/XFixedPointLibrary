@@ -32,11 +32,7 @@
 # Project Structure
 
 ```text
-XFixedPoint/                         ← repository root
-├─ XFixedPoint.csproj                ← .NET Standard 2.1 project
-├─ README.md                         ← this documentation
-├─ LICENSE                           ← MIT license
-├─ Properties/AssemblyInfo.cs        ← assembly metadata
+XFixedPoint/                         ← project root
 │
 ├─ Core/                              ← core fixed-point types & algorithms
 │   ├─ XFixedConstants.cs             ← SHIFT, ONE, EPS constants

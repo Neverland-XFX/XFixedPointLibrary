@@ -31,11 +31,7 @@
 
 # 项目结构
 ```text
-XFixedPoint/                         ← 仓库根目录
-├─ XFixedPoint.csproj                ← .NET Standard 2.1 项目
-├─ README.md                         ← 文档
-├─ LICENSE                           ← MIT 许可证
-├─ Properties/AssemblyInfo.cs        ← 程序集元数据
+XFixedPoint/                         ← 项目根目录
 │
 ├─ Core/                              ← 核心定点类型与算术
 │   ├─ XFixedConstants.cs             ← 位宽、ONE、EPS 等常量
