@@ -1,0 +1,10 @@
+F:\GitHub\定点数学物理库\XFixedPointLibrary\XFixedPoint\bin\Debug\netstandard2.1\XFixedPoint.deps.json
+F:\GitHub\定点数学物理库\XFixedPointLibrary\XFixedPoint\bin\Debug\netstandard2.1\XFixedPoint.dll
+F:\GitHub\定点数学物理库\XFixedPointLibrary\XFixedPoint\bin\Debug\netstandard2.1\XFixedPoint.pdb
+F:\GitHub\定点数学物理库\XFixedPointLibrary\XFixedPoint\obj\Debug\netstandard2.1\XFixedPoint.GeneratedMSBuildEditorConfig.editorconfig
+F:\GitHub\定点数学物理库\XFixedPointLibrary\XFixedPoint\obj\Debug\netstandard2.1\XFixedPoint.AssemblyInfoInputs.cache
+F:\GitHub\定点数学物理库\XFixedPointLibrary\XFixedPoint\obj\Debug\netstandard2.1\XFixedPoint.AssemblyInfo.cs
+F:\GitHub\定点数学物理库\XFixedPointLibrary\XFixedPoint\obj\Debug\netstandard2.1\XFixedPoint.csproj.CoreCompileInputs.cache
+F:\GitHub\定点数学物理库\XFixedPointLibrary\XFixedPoint\obj\Debug\netstandard2.1\XFixedPoint.sourcelink.json
+F:\GitHub\定点数学物理库\XFixedPointLibrary\XFixedPoint\obj\Debug\netstandard2.1\XFixedPoint.dll
+F:\GitHub\定点数学物理库\XFixedPointLibrary\XFixedPoint\obj\Debug\netstandard2.1\XFixedPoint.pdb
