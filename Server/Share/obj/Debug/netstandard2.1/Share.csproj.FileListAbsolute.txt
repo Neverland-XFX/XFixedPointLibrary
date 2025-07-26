@@ -1,0 +1,11 @@
+F:\GitHub\定点数学物理库\XFixedPointLibrary\Server\Share\bin\Debug\netstandard2.1\Share.deps.json
+F:\GitHub\定点数学物理库\XFixedPointLibrary\Server\Share\bin\Debug\netstandard2.1\Share.dll
+F:\GitHub\定点数学物理库\XFixedPointLibrary\Server\Share\bin\Debug\netstandard2.1\Share.pdb
+F:\GitHub\定点数学物理库\XFixedPointLibrary\Server\Share\obj\Debug\netstandard2.1\Share.csproj.AssemblyReference.cache
+F:\GitHub\定点数学物理库\XFixedPointLibrary\Server\Share\obj\Debug\netstandard2.1\Share.GeneratedMSBuildEditorConfig.editorconfig
+F:\GitHub\定点数学物理库\XFixedPointLibrary\Server\Share\obj\Debug\netstandard2.1\Share.AssemblyInfoInputs.cache
+F:\GitHub\定点数学物理库\XFixedPointLibrary\Server\Share\obj\Debug\netstandard2.1\Share.AssemblyInfo.cs
+F:\GitHub\定点数学物理库\XFixedPointLibrary\Server\Share\obj\Debug\netstandard2.1\Share.csproj.CoreCompileInputs.cache
+F:\GitHub\定点数学物理库\XFixedPointLibrary\Server\Share\obj\Debug\netstandard2.1\Share.sourcelink.json
+F:\GitHub\定点数学物理库\XFixedPointLibrary\Server\Share\obj\Debug\netstandard2.1\Share.dll
+F:\GitHub\定点数学物理库\XFixedPointLibrary\Server\Share\obj\Debug\netstandard2.1\Share.pdb
