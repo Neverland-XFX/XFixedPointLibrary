@@ -12,7 +12,7 @@ namespace XFixedPoint.Physics.Collision
         /// <summary>
         /// 所属刚体（可为 null，表示静态或独立碰撞体）
         /// </summary>
-        public FixedRigidbody Rigidbody { get; set; }
+        public FixedRigidbody? Rigidbody { get; set; }
 
         /// <summary>
         /// 相对于刚体的局部偏移
